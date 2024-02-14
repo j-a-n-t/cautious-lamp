@@ -4,7 +4,7 @@ const App = () => {
     const [numberRandom, setNumberRandom] = useState<number>(0);
     const [imageRandom, setImageRandom] = useState<number>(0)
     const [scale, setScale] = useState<string>('1');
-    const [isDisabled,setIsDisblad] = useState<boolean>(false);
+    const [isDisabled, setIsDisblad] = useState<boolean>(false);
     const randomText: Array<string> = [
         'Respondeme bebe!',
         '¿segura?',
@@ -36,7 +36,7 @@ const App = () => {
         setNumberRandom(randomText);
         setImageRandom(randomImage);
         if (+scale < 5) {
-            const newScale = +scale+1;
+            const newScale = +scale + 1;
             setScale(newScale.toString())
         } else {
             const newScale = 1;
@@ -52,6 +52,13 @@ const App = () => {
         setIsDisblad(true);
     }
 
+    const onReset = () => {
+        setNumberRandom(0);
+        setImageRandom(0);
+        setScale('1');
+        setIsDisblad(false);
+    }
+
     return (
         <section
             className='flex justify-center items-center bg-gradient-to-r from-white from-30% to-amber-100 w-full h-screen'>
@@ -65,7 +72,7 @@ const App = () => {
                 <div className='flex items-center justify-around mt-20 gap-1'>
                     <button
                         style={{scale}}
-                        className={`cursor-pointer transition-all duration-300 bg-green-800 hover:bg-green-900 px-2.5 py-1.5 rounded text-lg font-bold text-white`}
+                        className={`${isDisabled ? 'hidden' : 'block'}  cursor-pointer transition-all duration-300 bg-green-800 hover:bg-green-900 px-2.5 py-1.5 rounded text-lg font-bold text-white`}
                         onClick={onOk}>
                         Si, acepto
                     </button>
@@ -74,6 +81,14 @@ const App = () => {
                         onClick={onRandomNumber}>
                         No, lo pensare
                     </button>
+                    {isDisabled &&
+                        <button
+                            onClick={onReset}
+                            className='cursor-pointer px-2.5 py-1.5 rounded text-lg font-bold text-gray-600 transition-all duration-100 hover:text-green-700 hover:bg-green-200'>
+                            Intentar nuevamente
+                        </button>
+                    }
+
                 </div>
             </div>
         </section>
