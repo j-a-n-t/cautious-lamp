@@ -3,7 +3,7 @@ import {useState} from "react";
 const App = () => {
     const [numberRandom, setNumberRandom] = useState<number>(0);
     const [imageRandom, setImageRandom] = useState<number>(0)
-    const [scale, setScale] = useState<number>(1);
+    const [scale, setScale] = useState<string>('1');
     const [isDisabled,setIsDisblad] = useState<boolean>(false);
     const randomText: Array<string> = [
         'Respondeme bebe!',
@@ -35,10 +35,13 @@ const App = () => {
         const randomImage = Math.round(Math.random() * 6);
         setNumberRandom(randomText);
         setImageRandom(randomImage);
-        if (scale < 5) {
-            setScale(scale + 1)
+        console.log(scale)
+        if (+scale < 5) {
+            const newScale = +scale+1;
+            setScale(newScale.toString())
         } else {
-            setScale(1)
+            const newScale = 1;
+            setScale(newScale.toString());
         }
 
     }
@@ -46,7 +49,7 @@ const App = () => {
     const onOk = () => {
         setNumberRandom(10);
         setImageRandom(7);
-        setScale(1);
+        setScale("1");
         setIsDisblad(true);
     }
 
@@ -62,7 +65,8 @@ const App = () => {
 
                 <div className='flex items-center justify-around mt-20 gap-1'>
                     <button
-                        className={`${isDisabled ? 'hidden' : 'block'} transition-all scale-[${scale}] duration-300 bg-green-800 hover:bg-green-900 px-2.5 py-1.5 rounded text-lg font-bold text-white`}
+                        style={{scale}}
+                        className={`transition-all duration-300 bg-green-800 hover:bg-green-900 px-2.5 py-1.5 rounded text-lg font-bold text-white`}
                         onClick={onOk}>
                         Si, acepto
                     </button>
