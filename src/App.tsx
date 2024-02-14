@@ -35,7 +35,6 @@ const App = () => {
         const randomImage = Math.round(Math.random() * 6);
         setNumberRandom(randomText);
         setImageRandom(randomImage);
-        console.log(scale)
         if (+scale < 5) {
             const newScale = +scale+1;
             setScale(newScale.toString())
