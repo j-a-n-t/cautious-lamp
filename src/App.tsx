@@ -71,7 +71,7 @@ const App = () => {
                         Si, acepto
                     </button>
                     <button
-                        className={`${isDisabled ? 'hidden' : 'block'} transition-all duration-300 bg-red-800 hover:bg-red-900 px-2.5 py-1.5 rounded text-lg font-bold text-white`}
+                        className={`${isDisabled ? 'hidden' : 'block'} cursor-pointer transition-all duration-300 bg-red-800 hover:bg-red-900 px-2.5 py-1.5 rounded text-lg font-bold text-white`}
                         onClick={onRandomNumber}>
                         No, lo pensare
                     </button>
