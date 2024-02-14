@@ -66,7 +66,7 @@ const App = () => {
                 <div className='flex items-center justify-around mt-20 gap-1'>
                     <button
                         style={{scale}}
-                        className={`transition-all duration-300 bg-green-800 hover:bg-green-900 px-2.5 py-1.5 rounded text-lg font-bold text-white`}
+                        className={`cursor-pointer transition-all duration-300 bg-green-800 hover:bg-green-900 px-2.5 py-1.5 rounded text-lg font-bold text-white`}
                         onClick={onOk}>
                         Si, acepto
                     </button>
